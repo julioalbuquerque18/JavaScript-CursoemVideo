@@ -1,0 +1,208 @@
+JAVASCRIPT
+
+TIPOS DE VARIÁVEIS:
+- number  ->  números
+- string  ->  palavras
+- boolean  ->  booleano
+
+
+JANELAS:
+- window.alert('seja bem vindo');  ->  mensagem com botão de "ok".
+- window.confirm('deseja continuar?');  ->  mensagem com botões de "ok" e "cancelar".
+- window.prompt('qual o seu nome?');  ->  mensagem com campo de preenchimento.
+
+
+COMENTÁRIOS:
+- <!--comentário em HTML-->
+- /*comentário em CSS*/
+- //comentário em javascript
+
+
+CONVERTER STRINGS PARA NÚMEROS:
+- Number.parseInt(n)  ->  tratar número inteiro.
+- Number.parseFloat(n)  ->  tratar número real.
+- Number(n)  ->  o javascript decide se é inteiro ou real.
+
+ex: var n1 = Number(window.prompt("Digite um número: "));
+
+
+CONVERTER NÚMEROS PARA STRINGS:
+- String(n)
+- n.toString()
+
+
+ADIÇÃO E CONCATENAÇÃO:
+- (number + number) para adição
+- (sting + string) para concatenação/junção
+
+
+FORMATAÇÃO DE STRINGS:
+- "aluno: " + aluno + " -- idade: " + idade + " -- nota: " + nota  ->  usa concatenação.
+- `aluno: ${aluno} -- idade: ${idade} -- nota: ${nota}`  ->  usa template string.
+
+ambas tem o resultado: 'aluno: julio -- idade: 20 -- nota: 9.8'
+
+
+OUTRAS FORMATAÇÕES DE STRINGS:
+var s = 'JavaScript'
+- s.length  ->  quantos caracteres a string tem
+- s.toUpperCase()  ->  tudo para 'MAIÚSCULAS'
+- s.toLowerCase()  ->  tudo para 'minúsculas'
+
+ex: var nome = window.prompt('Qual o seu nome?');
+    document.writeln(`Olá <strong>${nome}</strong>, seu nome tem ${nome.length} letras. </br>`);  ->  Julio / 5
+    document.writeln(`Seu nome em maiúsculo fica: ${nome.toUpperCase()}</br>`);  ->  JULIO
+    document.writeln(`Seu nome em minúsculas fica: ${nome.toLowerCase()}`);  ->  julio
+
+
+FORMATAÇÃO DE NÚMEROS:
+var n1 = 1545.5
+- n1.toFixed(2)  ->  o número terá 2 casas decimais  ->  '1545.50'
+- n1.toFixed(5)  ->  o número terá 5 casas decimais  ->  '1545.50000'
+
+- n1.toFixed(2).replace('.' , ',')  -> o número terá 2 casas decimais e trocará o "." por ","  ->  '1545,50'
+
+- n1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})  ->  converte o número em reais  ->  'R$ 1.545,50'
+- n1.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})  ->  converte o número em dólar  ->  'US$ 1.545,50'
+- n1.toLocaleString('pt-BR', {style: 'currency', currency: 'EUR'})  ->  converte o número em euros  ->  '€ 1.545,50'
+
+
+OPERADORES:
+-ARITMÉTICOS:
+ 5 + 2 = 7
+ 5 - 2 = 3
+ 5 * 2 = 10
+ 5 / 2 = 2.5
+ 5 % 2 = 1 (resto da divisão inteira)
+ 5 ** 2 = 25 (potência, ou "ao quadrado")
+ 5 + 3 / 2 = 6.5 (precedência de operadores)
+ 
+ ordem de precedência (de cima pra baixo): 
+ 1°| () 
+ 2°| ** 
+ 3°| *  /  %
+ 4°| +  -
+ 5°| >  <  >= ...
+ 6°| !
+ 7°| &&
+ 8°| ||
+ 
+-ATRIBUIÇÃO:
+ atribuição simples:
+ var a = 2
+ var b = a + 3
+ 
+ auto-atribuição:
+ var n = 3
+ n = n + 4   -> 7
+ 
+ simplificar auto-atribuição:
+ var n = 3
+ n += 4      -> 7
+ 
+ incremento:
+ var n = 10
+ n++         -> 10 (soma +1 depois)
+ 
+ pré incremento:
+ var n = 10
+ ++n         -> 11 (soma +1 antes)
+ 
+ -RELACIONAIS:
+ 5 > 2
+ 7 < 4
+ 8 >= 8
+ 9 <= 7
+ 5 == 5
+ 4 != 4
+ 
+ identidade:
+ 5 == 5     -> true
+ 5 == '5'   -> true (apesar do '5' ser uma string, eles possuem a mesma grandeza)
+ 5 === 5    -> true (o "===" identifica se eles possuem o mesmo valor e tipo)
+ 5 === '5'  -> false (um deles é um número e outro é uma string)
+ 
+ -LÓGICOS:
+ !   =  negação
+ &&  =  conjunção (e)
+ ||  =  disjunção (ou)
+ 
+ -TERNÁRIO:
+ teste ? true : false                    ->  teste lógico
+ média >= 7 ? "APROVADO" : "REPROVADO"   ->  dependendo do valor da média, aparecerá alguma das duas opções
+ média = 4                               ->  "REPROVADO"
+
+
+DOM ("Document Object Model" ou "Modelo de Objeto do Documento"):
+- um conjunto de objetos dentro do navegador que dá acesso aos componentes internos do website
+- o DOM não funciona dentro do NodeJS, mas o DOM está presente quando o JavaScript está rodando dentro do navegador
+- É uma representação do HTML em forma de objetos, que o navegador cria quando carrega uma página.
+
+Em termos simples:
+- O HTML é texto
+- O DOM é esse HTML transformado em uma estrutura que o JavaScript consegue manipular
+
+Graças ao DOM, o JavaScript consegue:
+- Ler conteúdo da página
+- Alterar textos, estilos e atributos
+- Criar ou remover elementos
+- Reagir a eventos (clique, teclado, mouse etc.)
+
+-ÁRVORE DOM:
+- A árvore DOM é a forma como o navegador organiza o HTML internamente.
+
+Exemplo:
+window
+├── location
+├── document
+│    └── html
+│          ├── head
+│          │     ├── meta
+│          │     └── title
+│          └── body
+│                ├── h1
+│                ├── p
+│                ├── p
+│                │ └── strong
+│                └── div
+└── history
+
+
+- O topo (window) pertence ao BOM
+- O DOM começa a partir do document
+
+PARTES DA ÁRVORE:
+window → objeto global do navegador; representa a janela do navegador onde sua página está rodando.
+location → representa o endereço (URL) atual.
+history → controla o histórico de navegação da aba.
+
+
+5 MÉTODOS DE ACESSO AO DOM:
+- por marca 
+- por ID 
+- por Nome 
+- por Classe 
+- por Seletor
+
+
+ACESSO POR MARCA (TAG):
+ document.getElementsByTagName("p");
+
+
+ACESSO POR ID:
+ document.getElementById("titulo");
+
+
+ACESSO POR NOME:
+ document.getElementsByName("usuario");
+
+
+ACESSO POR CLASSE:
+ document.getElementsByClassName("texto");
+
+
+ACESSO POR SELETOR (CSS SELECTOR):
+- A forma mais poderosa e flexível, usa seletores CSS.
+ex:
+ document.querySelector("p");      // primeiro p
+ document.querySelectorAll(".texto"); // todos com classe texto
